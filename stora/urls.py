@@ -10,7 +10,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
 	(r'^rooms/$', 'rooms.views.index'),
 	(r'^$', 'index.views.index'),
-    # Examples:
+  url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/usr/local/stora_fun/static'}),
+
+  # Examples:
     # url(r'^$', 'stora.views.home', name='home'),
     # url(r'^stora/', include('stora.foo.urls')),
 
