@@ -6,3 +6,4 @@ def index(request):
 	c = Context({'nora_test':'hello_world',})
 
 	return HttpResponse(t.render(c))
+
