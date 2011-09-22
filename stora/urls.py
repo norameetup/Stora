@@ -9,6 +9,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	(r'^rooms/$', 'rooms.views.index'),
+	(r'^$', 'index.views.index'),
     # Examples:
     # url(r'^$', 'stora.views.home', name='home'),
     # url(r'^stora/', include('stora.foo.urls')),
