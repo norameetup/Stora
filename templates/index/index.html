@@ -1,3 +1,8 @@
 {% extends "_base.html" %}
-dude, im totally in the index...
-{{nora_test}}
+
+{% block main %}
+<p>Hey! I'm the main content!</p>
+    {% for room in availableRooms %}
+        <li><a href="/rooms/{{ room.id }}/">{{ room.name }}</a></li>
+    {% endfor %}
+{% endblock main %}
