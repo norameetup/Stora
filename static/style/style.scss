@@ -13,7 +13,7 @@ html, body {
   min-height: 100%;
   display: table;
   height: 100%;
-  width: 960px;
+  width: 700px;
   margin: 0 auto; }
 
 #main {
@@ -27,13 +27,79 @@ html, body {
 	clear:both; } 
 /* } Sticky Footer */
 
+/* Clearfix { */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+/* } Clearfix */
+
+.displaynone {
+  display: none;
+}
+a, a:visited, a:active {
+  color: #4D90FE;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.body {
+  background-color: #e1e1e1;
+  font-size: 13px;
+}
+.hd {
+  padding: 24px 0 16px 0;
+}
 .ft {
   background: url(/static/images/fabric.png);
   @include shadow(0, 0, 10px, #000000, inset);
 }
-
 .logo {
-  font-size: 54px;
+  font-size: 48px;
   color: #666;
   text-transform: uppercase;
+}
+.results {
+  width: 700px;
+}
+.item {
+  /*float: left;*/
+  padding: 10px;
+  width: 680px;
+  background-color: #F5F5F5;
+  &:hover {
+    background-color: #fff;
+  }
+  .info {
+    float: left;
+    margin-left: 12px;
+    .name {
+      font-size: 1.6em;
+    }
+    .address {
+      color: #888;
+      padding: 3px 0;
+    }
+  }
+}
+.polaroid {
+  float: left;
+  padding: 6px 6px 16px;
+  width: 82px;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  .cutout {
+    width: 80px;
+    height: 60px;
+    overflow: hidden;
+    background-size: cover;
+    border: 1px solid #e1e1e1;
+  }
 }

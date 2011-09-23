@@ -12,15 +12,30 @@
   <title>{% block title %}Stora{% endblock title %}</title>
 </head>
 
-<body>
+<body class="body">
 <div id="wrap">
-	<div id="header">
+	<div id="header" class="hd">
     {% block header %}
     <div class="logo">Stora</div>
     {% endblock header %}
 	</div>
 	<div id="main">
-    {% block main %}<p>Hey! I'm the main content!</p>{% endblock main %}
+    <ul class="results">
+    {% for room in availableRooms %}
+    <li id="room_{{ room.id }}" class="item clearfix">
+      <div class="polaroid">
+        <div class="cutout" style="background: url(/static/images/room_1.jpg) 50% 50% no-repeat;">
+          <!--<img class="picture" src="/static/images/room_1.jpg" />-->
+        </div>
+      </div>
+      <div class="info">
+        <a class="name" href="/rooms/{{ room.id }}/">{{ room.name }}</a>
+        <div class="address">632 Broadway, 10th Floor, New York, NY 10028</div>
+      </div>
+    </li>
+    {% endfor %}
+    </ul>
+    <div id="hud" class="sidebar"></div>
 	</div>
 </div>
 <div id="footer" class="ft">
