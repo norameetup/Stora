@@ -25,10 +25,7 @@ class Reservation(models.Model):
 	size = models.IntegerField()
 	
 	def __unicode__(self):
-		return self.room + " for " + self.res_time 
+		return self.room.name + " for " + self.res_time 
 
 
-class SearchForm(forms.Form):
-    zipcode = forms.IntegerField()
-    date = forms.DateField()
-    capacity = forms.IntegerField();
+
