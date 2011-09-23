@@ -1,7 +1,14 @@
 {% extends "_base.html" %}
 
 {% block main %}
-  Hey!
+  <div id="search" class="search">
+    <form id="search-form" action="/" method="POST">
+      <input type="text" name="zipcode" value="Zipcode" />
+      <input type="text" name="date" value="MM/DD/YYYY" />
+      <input type="text" name="capacity" value="10" />
+      <button type="submit" name="search">Search</button>
+    </form>
+  </div>
   <ul class="results">
   {% for room in availableRooms %}
   <li id="room_{{ room.id }}" class="item clearfix">
