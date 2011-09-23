@@ -20,6 +20,7 @@
     {% endblock header %}
 	</div>
 	<div id="main">
+    {% block main %}
     <ul class="results">
     {% for room in availableRooms %}
     <li id="room_{{ room.id }}" class="item clearfix">
@@ -35,7 +36,7 @@
     </li>
     {% endfor %}
     </ul>
-    <div id="hud" class="sidebar"></div>
+    {% endblock main %}
 	</div>
 </div>
 <div id="footer" class="ft">
