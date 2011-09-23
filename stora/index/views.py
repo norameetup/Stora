@@ -1,6 +1,6 @@
 from django.template import Context, loader
 from django.http import HttpResponse
-from rooms.models import Room, Member
+from rooms.models import Room
 
 def getAllRooms():
     rooms = Room.objects.all()

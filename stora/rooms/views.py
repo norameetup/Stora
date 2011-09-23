@@ -1,6 +1,6 @@
 from django.template import Context, loader
 from django.http import HttpResponse
-from rooms.models import Room, Member
+from rooms.models import Room
 
 
 def getRoomInfo( room_id ):
@@ -10,7 +10,7 @@ def getRoomInfo( room_id ):
 
 def index(request, room_id):
 	t = loader.get_template('rooms/index.html')
-	c = Context({'nora_test': getRoomInfo( room_id ),})
+	c = Context({'room': getRoomInfo( room_id ),})
 
 	return HttpResponse(t.render(c))
 

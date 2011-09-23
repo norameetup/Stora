@@ -1,17 +1,11 @@
 from django.db import models
 
-class Member(models.Model):
-	name = models.CharField(max_length=200)
-	points = models.IntegerField()
-	
-	def __unicdoe__(self):
-		return self.name
-
 class Room(models.Model):
-	member = models.ForeignKey(Member)
 	name = models.CharField(max_length=200)
 	description = models.TextField()
-	size = models.IntegerField()
+	icon = models.TextField(max_length=200)
+	price = models.IntegerField()
+	capacity = models.IntegerField()
 	address = models.CharField(max_length=200)
 	city = models.CharField(max_length=100)
 	state = models.CharField(max_length=20)
@@ -22,3 +16,12 @@ class Room(models.Model):
 
 	def __unicode__(self):
 		return self.name
+	
+class Reservation(models.Model):
+	room = models.ForeignKey(Room)
+	res_time = models.DateTimeField()
+	duration = models.IntegerField()
+	size = models.IntegerField()
+	
+	def __unicode__(self):
+		return self.room + " for " + self.res_time 
