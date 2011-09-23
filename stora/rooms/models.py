@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 class Room(models.Model):
 	name = models.CharField(max_length=200)
@@ -25,3 +26,9 @@ class Reservation(models.Model):
 	
 	def __unicode__(self):
 		return self.room + " for " + self.res_time 
+
+
+class SearchForm(forms.Form):
+    zipcode = forms.IntegerField()
+    date = forms.DateField()
+    capacity = forms.IntegerField();

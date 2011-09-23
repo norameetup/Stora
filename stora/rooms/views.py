@@ -10,7 +10,7 @@ def getRoomInfo( room_id ):
 
 def index(request, room_id):
 	t = loader.get_template('rooms/index.html')
-	c = Context({'room': room_id,})
+	c = Context({'room': getRoomInfo( room_id ),})
 
 	return HttpResponse(t.render(c))
 

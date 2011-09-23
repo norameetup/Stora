@@ -2,7 +2,7 @@
 
 {% block main %}
   <div id="search" class="search">
-    <form id="search-form" action="/" method="POST">
+    <form id="search-form" action="/" method="POST">{% csrf_token %}
       <input type="text" name="zipcode" value="Zipcode" />
       <input type="text" name="date" value="MM/DD/YYYY" />
       <input type="text" name="capacity" value="10" />
