@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 class Room(models.Model):
 	name = models.CharField(max_length=200)
@@ -24,4 +25,7 @@ class Reservation(models.Model):
 	size = models.IntegerField()
 	
 	def __unicode__(self):
-		return self.room + " for " + self.res_time 
+		return self.room.name + " for " + self.res_time 
+
+
+
