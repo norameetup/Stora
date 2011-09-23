@@ -3,9 +3,12 @@
 {% block main %}
   {{ room }}
   
+  {{reservations}}
+  {{status}}
+  
     <form id="res-form" action="/rooms/{{room.id}}/" method="POST">{% csrf_token %}
       <input type="text" name="room_id" value={{room.id}} />
-      <input type="text" name="date" value="MM/DD/YYYY" />
+      <input type="text" name="date" value="09/25/2011 2:30"" />
       <input type="text" name="duration" value="10" />
       <input type="text" name="size" value="10" />
       <button type="submit" name="search">Reservation</button>
