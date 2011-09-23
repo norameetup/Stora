@@ -1,16 +1,56 @@
 {% extends "_base.html" %}
 
 {% block main %}
-<div class="room-hud">
-  {{ room }}
-  {{reservations}}
-  {{status}}
-  
-  <form id="res-form" action="/rooms/{{room.id}}/" method="POST">{% csrf_token %}
-    <input type="hidden" name="room_id" value={{room.id}} />
-    <input type="text" name="date" value="09/25/2011 2:30" />
-    <input type="text" name="duration" value="10" />
-    <button type="submit" name="search">Reserve</button>
-  </form>
+{% if status %}
+<div class="alert {% if status == "posted" %}posted{% endif %}">
+  {% if status == "posted" %}
+    Your reservation has been accepted!
+  {% else %}
+    This time is already booked.
+  {% endif %}
+</div>
+{% endif %}
+<div class="room">
+  <div class="rhd">
+    {{ room }}
+  </div>
+  <div class="hud clearfix">
+  {% comment %}
+    {{reservations}}
+  {% endcomment %}
+    <div class="polaroid">
+      <div class="cutout" style="background: #E1E1E1 url({{ room.icon }}) 50% 50% no-repeat;">
+        <!--<img class="picture" src="/static/images/room_1.jpg" />-->
+      </div>
+    </div>
+    <div class="info">
+      <div class="address">
+        <div class="address1">{{ room.address }}</div>
+        <div class="address2">{{ room.city }}, {{ room.state }} {{ room.zip }}</div>
+      </div>
+    </div>
+    <div class="price {% if room.price != 0 %}has-price{% endif %}">
+      {% if room.price == 0 %}
+        FREE
+      {% else %}
+        {{ room.price }}
+      {% endif %}
+    </div>
+    <div class="capacity">{{ room.capacity }}</div>
+    
+    <form id="res-form" action="/rooms/{{room.id}}/" method="POST">{% csrf_token %}
+      <input type="hidden" name="room_id" value={{room.id}} />
+      <input type="text" name="date" value="09/25/2011 2:30" />
+      <input type="text" name="duration" value="10" />
+      <button type="submit" name="search">Reserve</button>
+    </form>
+  </div>
+  <div class="rinfo">
+    <div class="descr-long">
+      <p>Check out this meetup with gdreia-greater dayton real esate investors association Rt joebachana great meetup last night w/ the drupalcampnyc organizer group.what a terrific, intelligent, creative, and earnest bunch to work with drupal X-post from /r/sf looking to organize a redditor meetup at shpongle halloween show submitted by funkykong [. 5 places left for badminton tomorrow - free to join, £5 per session, 11am - 1pm, mixed ability. se1 se11 I liked a youtube video you tube beauties meetup short snipit</p>
+      <p>Rt avelient join us with byouchah to discuss social media at the web & you meetup. rsvp please. Come with me to this meetup for lyra atlanta. Rt xrtml seems like it's going to be a fun realtimeweb meetup in nyc. join us. Breatsfeeding challenge galaxy cinemas on oct 1. making records. i'm going to this meetup cwds New york meetup sunday</p> 
+      <p>New york meetup sunday Check out this meetup with stimulus strategies networking the ottawa business networking. Nice. before or after meetup? i am there. rt sounderatheart meet fellow sounder at heart readers oct. 15 at c-link Sounds like a great meetup to attend Do you get bizzy in the sf bay area? come to our meetup next tuesday.</p>
+    </div>
+  </div>
 </div>
 {% endblock main %}

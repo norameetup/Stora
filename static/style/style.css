@@ -68,6 +68,9 @@ a:hover {
   font-size: 48px;
   color: #666;
   text-transform: uppercase; }
+  .logo a, .logo a:active, .logo a:visited, .logo a:hover {
+    color: #666;
+    text-decoration: none; }
 
 .search {
   padding: 10px;
@@ -142,5 +145,37 @@ a:hover {
     background-size: contain;
     border: 1px solid #e1e1e1; }
 
-.room-hud {
+.alert {
+  color: red;
+  width: 680px;
+  font-size: 1.6em;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #DDDDDD;
+  background-color: #F5F5F5;
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+  margin-bottom: 24px; }
+
+.posted {
+  color: green; }
+
+.room .rhd {
+  padding: 10px;
+  background-color: #666;
+  -moz-border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  font-size: 1.6em;
+  color: #F5F5F5; }
+.room .hud {
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #888; }
+.room .rinfo {
+  margin-bottom: 48px;
+  padding: 10px;
   background-color: #F5F5F5; }
+  .room .rinfo .descr-long {
+    width: 340px; }

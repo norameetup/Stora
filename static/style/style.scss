@@ -1,7 +1,14 @@
 @mixin shadow($hOffset, $vOffset, $blurRadius, $color, $inset:'') {
-  -moz-box-shadow: $inset $hOffset $vOffset $blurRadius $color;
-  -webkit-box-shadow: $inset $hOffset $vOffset $blurRadius $color;
-  box-shadow: $inset $hOffset $vOffset $blurRadius $color;
+  @if $inset != '' {
+    -moz-box-shadow: $inset $hOffset $vOffset $blurRadius $color;
+    -webkit-box-shadow: $inset $hOffset $vOffset $blurRadius $color;
+    box-shadow: $inset $hOffset $vOffset $blurRadius $color;
+  }
+  @if $inset == '' {
+    -moz-box-shadow: $hOffset $vOffset $blurRadius $color;
+    -webkit-box-shadow: $hOffset $vOffset $blurRadius $color;
+    box-shadow: $hOffset $vOffset $blurRadius $color;
+  }
 }
 @mixin round($nw, $ne: $nw, $se: $nw, $sw: $nw) {
   -moz-border-radius: $nw $ne $se $sw;                                  
@@ -70,6 +77,10 @@ a:hover {
   font-size: 48px;
   color: #666;
   text-transform: uppercase;
+  a, a:active, a:visited, a:hover {
+    color: #666;
+    text-decoration: none;
+  }
 }
 .search {
   padding: 10px;
@@ -152,6 +163,39 @@ a:hover {
     border: 1px solid #e1e1e1;
   }
 }
-.room-hud {
+.alert {
+  color: red;
+  width: 680px;
+  font-size: 1.6em;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #DDDDDD;
   background-color: #F5F5F5;
+  @include round(2px);
+  margin-bottom: 24px;
+}
+.posted {
+  color: green;
+}
+.room {
+  .rhd {
+    padding: 10px;
+    background-color: #666;
+    @include round(2px, 2px, 0, 0);
+    font-size: 1.6em;
+    color: #F5F5F5;
+  }
+  .hud {
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #888;
+  }
+  .rinfo {
+    margin-bottom: 48px;
+    padding: 10px;
+    background-color: #F5F5F5;
+    .descr-long {
+      width: 340px;
+    }
+  }
 }
