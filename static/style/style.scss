@@ -3,6 +3,11 @@
   -webkit-box-shadow: $inset $hOffset $vOffset $blurRadius $color;
   box-shadow: $inset $hOffset $vOffset $blurRadius $color;
 }
+@mixin round($nw, $ne: $nw, $se: $nw, $sw: $nw) {
+  -moz-border-radius: $nw $ne $se $sw;                                  
+  -webkit-border-radius: $nw $ne $se $sw;
+  border-radius: $nw $nw $se $sw;
+}
 
 /* Sticky Footer { */
 html, body {
@@ -66,27 +71,71 @@ a:hover {
   color: #666;
   text-transform: uppercase;
 }
+.search {
+  padding: 10px;
+  background-color: #666;
+  @include round(2px, 2px, 0, 0);
+}
 .results {
   width: 700px;
+  margin-bottom: 48px;
 }
 .item {
   /*float: left;*/
-  padding: 10px;
-  width: 680px;
+  padding: 10px 20px 10px 10px;
+  width: 670px;
   background-color: #F5F5F5;
+  border-bottom: 1px dotted #e1e1e1;
   &:hover {
     background-color: #fff;
   }
+  &:last-child {
+    border-bottom: 0;
+  }
   .info {
+    line-height: 1.2em;
     float: left;
     margin-left: 12px;
     .name {
+      display: block;
+      line-height: 1em;
+      width: 300px;
       font-size: 1.6em;
+      padding-bottom: 3px;
     }
     .address {
       color: #888;
-      padding: 3px 0;
+      padding: 0 0 3px;
     }
+    .description {
+      color: #888;
+      width: 300px;
+    }
+  }
+  .capacity {
+    float: right;
+    background: url(/static/images/capacity.png) 100% 50% no-repeat;
+    margin: 24px 0 0 12px;
+    padding-right: 36px;
+    font-size: 2.4em;
+    color: #666;
+    text-shadow: rgba(0,0,0,0.5) -1px 0;
+  }
+  .price {
+    width: 100px;
+    text-align: right;
+    float: right;
+    margin: 24px 0 0 12px;
+    font-size: 2.4em;
+    color: #45b101;
+    text-shadow: #388f01 -1px 0;
+  }
+  .has-price {
+    width: 62px;
+    color: #666;
+    text-shadow: rgba(0,0,0,0.5) -1px 0;
+    padding-right: 38px;
+    background: url(/static/images/price.png) 100% 50% no-repeat;
   }
 }
 .polaroid {
@@ -99,7 +148,7 @@ a:hover {
     width: 80px;
     height: 60px;
     overflow: hidden;
-    background-size: cover;
+    background-size: contain;
     border: 1px solid #e1e1e1;
   }
 }

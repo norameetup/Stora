@@ -13,14 +13,28 @@
   {% for room in availableRooms %}
   <li id="room_{{ room.id }}" class="item clearfix">
     <div class="polaroid">
-      <div class="cutout" style="background: url(/static/images/room_1.jpg) 50% 50% no-repeat;">
+      <div class="cutout" style="background: url({{ room.icon }}) 50% 50% no-repeat;">
         <!--<img class="picture" src="/static/images/room_1.jpg" />-->
       </div>
     </div>
     <div class="info">
       <a class="name" href="/rooms/{{ room.id }}/">{{ room.name }}</a>
-      <div class="address">632 Broadway, 10th Floor, New York, NY 10028</div>
+      <div class="address">
+        <div class="address1">{{ room.address }}</div>
+        <div class="address2">{{ room.city }}, {{ room.state }} {{ room.zip }}</div>
+      </div>
+      <div class="description">
+        {{ room.description }}
+      </div>
     </div>
+    <div class="price {% if room.price != 0 %}has-price{% endif %}">
+      {% if room.price == 0 %}
+        FREE
+      {% else %}
+        {{ room.price }}
+      {% endif %}
+    </div>
+    <div class="capacity">{{ room.capacity }}</div>
   </li>
   {% endfor %}
   </ul>
