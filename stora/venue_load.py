@@ -15,10 +15,12 @@ def doYourThing(url, description, price, capacity):
 			lat = location['geometry']['location']['lat']
 			lon = location['geometry']['location']['lng']
 
-			cur.execute("insert into rooms_room(name,description,icon,price,capacity,address,city,state,zip,lat,lon,ctime) values (?,?,?,?,?,?,?,?,?,?,date('now'))", 
+			cur.execute("insert into rooms_room(name,description,icon,price,capacity,address,city,state,zip,lat,lon,ctime) \
+			values (?,?,?,?,?,?,?,?,?,?,?,date('now'))", 
 					(location['name'], description, location['icon'], price, capacity, location['vicinity'], 'new york', 'ny', '10012', lat, lon ))
 
 			con.commit()
+		
 
 	except:
 		print 'error!'

@@ -4,7 +4,7 @@ from rooms.models import Room
 
 def getAllRooms():
     rooms = Room.objects.all()
-    
+    print 'hi'
     return rooms
 
 def index(request):
