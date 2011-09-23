@@ -16,6 +16,8 @@ class Room(models.Model):
 	city = models.CharField(max_length=100)
 	state = models.CharField(max_length=20)
 	zip = models.IntegerField()
+	lat = models.FloatField()
+	lon = models.FloatField()
 	ctime = models.DateField(auto_now_add=True)
 
 	def __unicode__(self):
